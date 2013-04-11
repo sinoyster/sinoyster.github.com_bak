@@ -1,0 +1,18 @@
+---
+layout: page
+title: Yuk Wong 的自言自语!
+tagline: Supporting tagline
+---
+{% include JB/setup %}
+
+<p><h1>BLOG LISTS</h1></p>
+
+  {% for post in site.posts %}
+    <div class="posts">
+      <p><h2><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.author.name}}</p>
+      <p>{{ post.content | strip_html | truncatewords: 55 }}</p>
+      <p><a href="{{ BASE_PATH }}{{ post.url }}">Read more ...</a></p>
+    </div>
+  {% endfor %}
+
+

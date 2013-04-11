@@ -7,11 +7,13 @@ tagline: Supporting tagline
 
 ## blogs list
 
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+  {% for post in site.posts %}
+    <div class="posts">
+      <p><h2><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>{{ post.date | date_to_string }} - {{site.name}}</p>
+      <p>{{ post.content | strip_html | truncatewords: 55 }}</p>
+      <p><a href="{{ BASE_PATH }}{{ post.url }}">Read more ...</a></p>
+    </div>
+  {% endfor %}
 
 ## To-Do
 
