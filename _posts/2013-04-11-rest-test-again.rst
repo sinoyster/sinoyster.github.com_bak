@@ -9,7 +9,15 @@ tags: [test, github]
 
 
 
+
 test
-==============================================
+=======
 
 This theme is still unfinished. If you’d like to be added as a contributor, please fork! We need to clean up the themes, make theme usage guides with theme-specific markup examples.
+
+
+test2
+======
+
+This theme is still unfinished. If you’d like to be added as a contributor, please fork! We need to clean up the themes, make theme usage guides with theme-specific markup examples.
+
