@@ -4,13 +4,44 @@
  <title>Yuk Wong's Blog</title>
  <link href="http://sinoyster.github.io/atom.xml" rel="self"/>
  <link href="http://sinoyster.github.io"/>
- <updated>2013-04-12T14:27:45+08:00</updated>
+ <updated>2013-04-12T15:13:11+08:00</updated>
  <id>http://sinoyster.github.io</id>
  <author>
    <name>王旭</name>
    <email>sinoyster@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>你好,ReST Test！</title>
+   <link href="http://sinoyster.github.io/blog/github/2013/04/12/rest-test"/>
+   <updated>2013-04-12T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/github/2013/04/12/rest-test</id>
+   <content type="html">&lt;div class=&quot;section&quot; id=&quot;id2&quot;&gt;
+&lt;h2&gt;第一节&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Python  is  an  interpreted,  interactive, object-oriented programming language that combines remarkable power with very clear syntax.
+For an introduction to programming in Python you are referred to the Python Tutorial.  The Python Library Reference documents built-in
+and  standard types, constants, functions and modules.  Finally, the Python Reference Manual describes the syntax and semantics of the
+core language in (perhaps too) much detail.  (These documents may be located via the INTERNET RESOURCES below; they may  be  installed
+on your system as well.)&lt;/p&gt;
+&lt;p&gt;Python's  basic  power  can  be  extended  with your own modules written in C or C++.  On most systems such modules may be dynamically
+loaded.  Python is also adaptable as an extension language for existing applications.  See the internal documentation for hints.&lt;/p&gt;
+&lt;p&gt;Documentation for installed Python modules and packages can be viewed by running the pydoc program.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id3&quot;&gt;
+&lt;h2&gt;第二节&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ruby is an interpreted scripting language for quick and easy object-oriented programming.  It has many features to process text files
+and to do system management tasks (as in Perl).  It is simple, straight-forward, and extensible.&lt;/p&gt;
+&lt;p&gt;If you want a language for easy object-oriented programming, or you don't like the Perl ugliness, or you do like the concept of LISP,
+but don't like too many parentheses, Ruby might be your language of choice.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
  
  
 </feed>

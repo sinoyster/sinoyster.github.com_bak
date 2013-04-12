@@ -1,0 +1,3 @@
+jekyll --no-server
+rm -rf ../blog
+cp -r ./_site/* ..

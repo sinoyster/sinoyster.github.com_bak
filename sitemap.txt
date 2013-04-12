@@ -7,3 +7,5 @@ http://sinoyster.github.io/pages.html
 http://sinoyster.github.io/categories.html
 http://sinoyster.github.io/tags.html
 http://sinoyster.github.io/sitemap.txt
+
+http://sinoyster.github.io/blog/github/2013/04/12/rest-test
