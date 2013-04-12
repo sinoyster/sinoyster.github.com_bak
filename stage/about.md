@@ -1,17 +1,19 @@
 ---
 layout: page
-title: "About Zhenyu"
-description: "Zhang Zhenyu, 张振宇, Developer, 程序员, Geek"
+title: "About Yuk Wong"
+description: "Yuk Wong, 王旭, 咨询顾问, 分析师, Geek"
 group: navigation
 ---
 {% include JB/setup %}
 
-![avatar](/assets/image/profile/bel.jpg)
+![avatar](/assets/image/profile/abel.jpg)
 
 <div style="line-height: 30px;">
-
+   爱生活、爱思考
 </div>
 ---
+
+咨询顾问, 分析师, Geek
 
 * 2005 - now,  高级顾问@[中国建设银行](http://www.ccb.com)
 * 1997 - 2003, CS@[电子科技大学](http://www.uestc.edu.cn)
