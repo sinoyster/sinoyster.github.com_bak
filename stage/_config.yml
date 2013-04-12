@@ -1,6 +1,6 @@
 # This is the default format. 
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /blog/:year/:month/:day/:title 
+permalink: /blog/:categories/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
@@ -10,14 +10,14 @@ safe: false
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Zhenyu's Blog
+title : Yuk Wong's Blog
 tagline: Site Tagline
 author :
-  name : 张振宇
-  email : zhenyucheung@gmail.com
-  github : zyzhang
-  twitter : username
-  feedburner : feedname
+  name : 王旭
+  email : sinoyster@gmail.com
+  github : sinoyster
+  twitter : sinoyster
+#  feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -27,7 +27,7 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://zyzhang.github.com
+production_url : http://sinoyster.github.io
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -82,7 +82,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : zhenyublog
+      short_name : sinoyster
   #  livefyre :
   #    site_id : 123
   #  intensedebate :
@@ -98,7 +98,7 @@ JB :
   # Set 'provider' to false to turn analytics off globally.
   #        
   analytics :
-    provider : google 
+    provider : false 
     google : 
         tracking_id : 'UA-34484534-1'
     getclicky :
