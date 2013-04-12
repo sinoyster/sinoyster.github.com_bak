@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd stage 
-sh ./public
+sh ./publish
 cd -
