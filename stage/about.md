@@ -9,7 +9,7 @@ group: navigation
 ![avatar](/assets/image/profile/abel.jpg)
 
 <div style="line-height: 30px;">
-   爱生活、爱思考
+   数据之美， 知行合一, 各得其心
 </div>
 ---
 
