@@ -1,3 +1,6 @@
-jekyll --no-server
+jekyll --no-auto
 rm -rf ../blog
 cp -r ./_site/* ..
+
+git add ..
+
