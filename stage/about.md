@@ -15,8 +15,9 @@ group: navigation
 
 咨询顾问, 分析师, Geek
 
-* 2005 - now,  高级顾问@[中国建设银行](http://www.ccb.com)
-* 1997 - 2003, CS@[电子科技大学](http://www.uestc.edu.cn)
+* 2012 - now,   高级顾问@[中国建设银行总行](http://www.ccb.com)
+* 2005 - 2012,  分析师@[中国建设银行四川省分行](http://www.ccb.com)
+* 1997 - 2003,  CS@[电子科技大学](http://www.uestc.edu.cn)
 
 ---
 
