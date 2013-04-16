@@ -4,13 +4,183 @@
  <title>王旭的博客</title>
  <link href="http://sinoyster.github.io/atom.xml" rel="self"/>
  <link href="http://sinoyster.github.io"/>
- <updated>2013-04-13T23:19:19+08:00</updated>
+ <updated>2013-04-17T00:55:31+08:00</updated>
  <id>http://sinoyster.github.io</id>
  <author>
    <name>王旭</name>
    <email>sinoyster@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>MySQL文本导入小结</title>
+   <link href="http://sinoyster.github.io/blog/database/2013/04/14/mysql-import-csv"/>
+   <updated>2013-04-14T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/database/2013/04/14/mysql-import-csv</id>
+   <content type="html">&lt;p&gt;对一个数据人来说，mysql是数据分析的利器，本文总结几种常用数据导入问题的解决办法&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;id1&quot;&gt;
+&lt;h2&gt;1.命令&lt;/h2&gt;
+&lt;p&gt;MySQL 文档copy来的语法, 是不是很头大， 直接调几条带注释的来看吧&lt;/p&gt;
+&lt;pre class=&quot;code mysql literal-block&quot;&gt;
+&lt;span class=&quot;keyword&quot;&gt;LOAD&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;DATA&lt;/span&gt; &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;LOW_PRIORITY&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;CONCURRENT&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;LOCAL&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;              &lt;span class=&quot;comment single&quot;&gt;#标识是从服务器端还是客户端的文件系统进行数据导入
+&lt;/span&gt;    &lt;span class=&quot;keyword&quot;&gt;INFILE&lt;/span&gt; &lt;span class=&quot;literal string single&quot;&gt;'file_name'&lt;/span&gt;   &lt;span class=&quot;comment single&quot;&gt;#指定导入文件
+&lt;/span&gt;    &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;REPLACE&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;IGNORE&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;   &lt;span class=&quot;comment single&quot;&gt;#重复情况是覆盖还是忽略
+&lt;/span&gt;    &lt;span class=&quot;keyword&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;tbl_name&lt;/span&gt;  &lt;span class=&quot;comment single&quot;&gt;#导入的表名
+&lt;/span&gt;    &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;keyword type&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;charset_name&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;comment single&quot;&gt;#导入文件的字符集
+&lt;/span&gt;    &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;error&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;FIELDS&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;COLUMNS&lt;/span&gt;&lt;span class=&quot;error&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;comment single&quot;&gt;#描述每个导入字段的属性
+&lt;/span&gt;        &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;TERMINATED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;literal string single&quot;&gt;'string'&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;             &lt;span class=&quot;comment single&quot;&gt;#指字段定分隔符
+&lt;/span&gt;        &lt;span class=&quot;punctuation&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;OPTIONALLY&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ENCLOSED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;literal string single&quot;&gt;'char'&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;    &lt;span class=&quot;comment single&quot;&gt;#字段包围符号
+&lt;/span&gt;        &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;ESCAPED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;literal string single&quot;&gt;'char'&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;LINES&lt;/span&gt;               &lt;span class=&quot;comment single&quot;&gt;#行属性描述
+&lt;/span&gt;        &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;STARTING&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;literal string single&quot;&gt;'string'&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;      &lt;span class=&quot;comment single&quot;&gt;#行起始字符
+&lt;/span&gt;        &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;TERMINATED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;literal string single&quot;&gt;'string'&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;    &lt;span class=&quot;comment single&quot;&gt;#行分割 unix: \n  ;  windows: \r\n
+&lt;/span&gt;    &lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;IGNORE&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;LINES&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;]&lt;/span&gt;           &lt;span class=&quot;comment single&quot;&gt;#跳过前几行
+&lt;/span&gt;    &lt;span class=&quot;punctuation&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;col_name_or_user_var&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;,...)]&lt;/span&gt;    &lt;span class=&quot;comment single&quot;&gt;#指定文本域与表的映射，
+&lt;/span&gt;                                    &lt;span class=&quot;comment single&quot;&gt;#可以直接映射到表字段，
+&lt;/span&gt;                                    &lt;span class=&quot;comment single&quot;&gt;#也可以映射到某变量,
+&lt;/span&gt;                                    &lt;span class=&quot;comment single&quot;&gt;#映射为变量转换后再赋给表字段
+&lt;/span&gt;    &lt;span class=&quot;punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;keyword type&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;col_name&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;name&quot;&gt;expr&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;,...]&lt;/span&gt;       &lt;span class=&quot;comment single&quot;&gt;#对导入映射的变量进行加工处理，
+&lt;/span&gt;                                    &lt;span class=&quot;comment single&quot;&gt;#最后映射到字段上&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;从下面的几个案例来看Load DATA infile 是如何使用的.
+假定:在没有特殊说明的情况下，案例中的数据库和导入文本都是 &lt;strong&gt;utf8&lt;/strong&gt; 编码,在windows下实验保存
+注：在启动mysql命令时候要指定 &lt;strong&gt;--local-infile&lt;/strong&gt; 否则 LOAD DATA 中的LOCAL不会生效&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;auto-increment&quot;&gt;
+&lt;h2&gt;2.AUTO_INCREMENT字段&lt;/h2&gt;
+&lt;p&gt;大多数表都会有个自增的id(AUTO_INCREMENT)字段作为主键，导入时候需要自动生成,
+我们在通过sql插入这种类型的字段时，赋值为null就可以自动生成自增的主键,
+导入的时候我们也可以如法炮制。&lt;/p&gt;
+&lt;p&gt;假定有如下表和导入数据:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+CREATE TABLE imp_null (
+  id INT NOT NULL AUTO_INCREMENT ,
+  name   VARCHAR(16) ,
+  addr   VARCHAR(64) ,
+  PRIMARY KEY(id)
+);
+&lt;/pre&gt;
+&lt;p&gt;数据文件：imp_null.txt:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+张三,地址一
+李四,地址二
+王五,地址三
+赵六,地址四
+&lt;/pre&gt;
+&lt;p&gt;导入命令:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+LOAD DATA LOCAL INFILE 'imp_null.txt'
+INTO TABLE imp_null
+FIELDS TERMINATED BY ','  #字段之间是','分隔
+LINES TERMINATED BY '\n'  #根据你的系统选择,windows是'\r\n'; unix是'\n'
+(name, addr)              #数据文件的字段顺序,以及对应的表映射字段
+SET id=NULL;              #指定每个导入的id为NULL，数据库自动生成
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id2&quot;&gt;
+&lt;h2&gt;3.跳过指定列&lt;/h2&gt;
+&lt;p&gt;跳过指定列很简单，只需要把文件映射到变量上，而不是表字段上即可&lt;/p&gt;
+&lt;p&gt;假定有如下表和导入数据:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+CREATE TABLE imp_skip (
+  name   VARCHAR(16) ,
+  addr   VARCHAR(64)
+);
+&lt;/pre&gt;
+&lt;p&gt;数据文件：imp_skip.txt:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+张三,字段2,地址一,字段4
+李四,字段2,地址二,字段4
+王五,字段2,地址三,字段4
+赵六,字段2,地址四,字段4
+&lt;/pre&gt;
+&lt;p&gt;导入命令:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+LOAD DATA LOCAL INFILE 'imp_skip.txt'
+INTO TABLE imp_skip
+FIELDS TERMINATED BY ','  #字段之间是','分隔
+LINES TERMINATED BY '\n'  #根据你的系统选择,windows是'\r\n'; unix是'\n'
+(name,&amp;#64;f1,addr,&amp;#64;f2)       #直接把字段数据映射到变量上，
+                          #变量是用&amp;#64;开头,对变量不做处理,就跳过相应的字段了
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id3&quot;&gt;
+&lt;h2&gt;4.日期处理&lt;/h2&gt;
+&lt;p&gt;MySQL中导入的日期日期字符串格式固定是YYYY-MM-DD,如果不是这种格式就得做转换， 解决的思路就是把文本中的字符串先保存在变量中再把变量转换成日期格式&lt;/p&gt;
+&lt;p&gt;假定有如下表和导入数据:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+CREATE TABLE imp_date (
+  name   VARCHAR(16) ,
+  bday   DATE
+);
+&lt;/pre&gt;
+&lt;p&gt;数据文件：imp_date.txt:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+张三,12/22/1981
+李四,05/15/1980
+王五,06/04/1989
+赵六,09/28/1990
+&lt;/pre&gt;
+&lt;p&gt;导入命令:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+LOAD DATA LOCAL INFILE 'imp_date.txt'
+INTO TABLE imp_date
+FIELDS TERMINATED BY ','  #字段之间是','分隔
+LINES TERMINATED BY '\n'  #根据你的系统选择,windows是'\r\n'; unix是'\n'
+(name,&amp;#64;bday)              #把日期字段先映射到变量上，
+SET bday = STR_TO_DATE(&amp;#64;bday, '%m/%d/%Y');
+                          #通过转换函数把字符串转换成日期格式
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id4&quot;&gt;
+&lt;h2&gt;5.中文处理&lt;/h2&gt;
+&lt;p&gt;对于linux，系统和数据库默认都是utf8编码，一般导入导出都没有太大问题。
+而对于中文windows系统默认的文本文件采用的是GBK编码, 需要在导入的时候指定:
+&lt;strong&gt;character set gbk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;建议编码的问题还是通过iconv命令来处理, 一是数据库不一定支持指定编码，二是有编码错误会导致导入失败&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id5&quot;&gt;
+&lt;h2&gt;6.金额处理&lt;/h2&gt;
+&lt;p&gt;对于很多电子表格导出的金额数据会包含&lt;strong&gt;','&lt;/strong&gt;号,如：'123,456.00', 导入的时候需要把','去掉，注意在导出文本的时候不要选择','分隔&lt;/p&gt;
+&lt;p&gt;假定有如下表和导入数据:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+CREATE TABLE imp_curr (
+  name   VARCHAR(16) ,
+  amount DECIMAL(13,2)
+);
+&lt;/pre&gt;
+&lt;p&gt;数据文件(\t分隔)：imp_curr.txt:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+张三   123,456.89
+李四   123,456.89
+王五   123,456.89
+赵六   123,456.89
+&lt;/pre&gt;
+&lt;p&gt;导入命令:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+LOAD DATA LOCAL INFILE 'imp_curr.txt'
+INTO TABLE imp_curr
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'  #根据你的系统选择,windows是'\r\n'; unix是'\n'
+(name,&amp;#64;amount)            #直接把字段数据映射到变量上，
+SET amount=REPLACE(&amp;#64;amount,',','')
+                          #通过REPLACE直接替换','号
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id6&quot;&gt;
+&lt;h2&gt;$.其他&lt;/h2&gt;
+&lt;p&gt;跳过开头几行:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+IGNORE 1 LINES           #跳过第一行
+&lt;/pre&gt;
+&lt;p&gt;总的来说不建议在导入阶段做过于复杂的转换，建议在导入之前对数据先进行预处理，所以awk、python也需要了解一些&lt;/p&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>快速搭建 Jekyll Blog (一)</title>

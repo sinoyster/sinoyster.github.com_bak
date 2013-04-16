@@ -8,5 +8,6 @@ http://sinoyster.github.io/categories.html
 http://sinoyster.github.io/tags.html
 http://sinoyster.github.io/sitemap.txt
 
+http://sinoyster.github.io/blog/database/2013/04/14/mysql-import-csv
 http://sinoyster.github.io/blog/github/2013/04/13/hosted-jekyll-blog-1
 http://sinoyster.github.io/blog/github/2013/04/12/rest-test
