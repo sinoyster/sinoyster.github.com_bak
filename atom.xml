@@ -4,13 +4,80 @@
  <title>王旭的博客</title>
  <link href="http://sinoyster.github.io/atom.xml" rel="self"/>
  <link href="http://sinoyster.github.io"/>
- <updated>2013-04-17T00:55:31+08:00</updated>
+ <updated>2013-04-21T17:29:12+08:00</updated>
  <id>http://sinoyster.github.io</id>
  <author>
    <name>王旭</name>
    <email>sinoyster@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>第五课 line graph 线形图</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/19/l05-line-graph"/>
+   <updated>2013-04-19T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/19/l05-line-graph</id>
+   <content type="html">&lt;p&gt;[&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/movie/2011/6/R/I/M82IC6GQU_M83J9N7RI.html&quot;&gt;第五课&lt;/a&gt;] line graph 线形图&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>第四课 bar graph 直方图</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/15/l04-bar-gragh"/>
+   <updated>2013-04-15T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/15/l04-bar-gragh</id>
+   <content type="html">&lt;p&gt;[&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/movie/2011/6/T/P/M82IC6GQU_M83J9NRTP.html&quot;&gt;第四课&lt;/a&gt;] bar graph 直方图&lt;/p&gt;
+&lt;p&gt;直方图又称质量分布图，是一种几何形图表，它是根据从生产过程中收集来的质量数据分布情况，画成以组距为底边、以频数为高度的一系列连接起来的直方型矩形图，如下图所示。&lt;/p&gt;
+&lt;div class=&quot;figure&quot; id=&quot;fig-01&quot;&gt;
+&lt;img alt=&quot;http://wiki.mbalib.com/w/images/c/c7/%E7%9B%B4%E6%96%B9%E5%9B%BE.gif&quot; src=&quot;http://wiki.mbalib.com/w/images/c/c7/%E7%9B%B4%E6%96%B9%E5%9B%BE.gif&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;作直方图的目的就是通过观察图的形状，判断生产过程是否稳定，预测生产过程的质量。具体来说，作直方图的目的有：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;显示数据的波动状态，判断一批已加工完毕的产品；&lt;/li&gt;
+&lt;li&gt;直观地传达有关过程情况的信息，例如验证工序的稳定性；&lt;/li&gt;
+&lt;li&gt;为计算工序能力搜集有关数据。&lt;/li&gt;
+&lt;li&gt;决定在何处集中力量进行改进；&lt;/li&gt;
+&lt;li&gt;观察数据真伪，用以制定规格界限；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;dl class=&quot;docutils&quot;&gt;
+&lt;dt&gt;直方图的优缺点:&lt;/dt&gt;
+&lt;dd&gt;&lt;ul class=&quot;first last simple&quot;&gt;
+&lt;li&gt;直方图的优点:任何情况都能使用直方图。&lt;/li&gt;
+&lt;li&gt;直方图的不足:会有信息丢失。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;R中直方图的作图&lt;/p&gt;
+&lt;p&gt;数据准备：
+l04.data:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+exam Jansmine Jeff Nevin Alejandra Marta
+midterm 73 87 83 82 96
+final 78 85 88 95 91
+&lt;/pre&gt;
+&lt;p&gt;代码:&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+&amp;gt; d &amp;lt;- read.table(&amp;quot;l04.data&amp;quot;, header=TRUE, sep=&amp;quot; &amp;quot;) #输入文件，用空格分隔
+&amp;gt; barplot(as.matrix(d[,2:6]),      #指定第2列到第6列的数据
+          beside=T,          #并排显示，搞不懂的把参数去了对比一下就知道了
+          col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;),    #指定颜色
+          legend=d$exam,           #指定legend
+          border=&amp;quot;white&amp;quot;,
+          xlim=c(0,18), ylim=c(0,100), #设定x、y轴的范围
+          args.legend = list(x=&amp;quot;right&amp;quot;), #legend的位置
+          ylab=&amp;quot;Score(%)&amp;quot;)              #y轴的label
+&amp;gt; title(main=&amp;quot;Scores on Midterm and Final Exams&amp;quot;) #设定title
+&lt;/pre&gt;
+&lt;p&gt;输出:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img alt=&quot;/assets/image/stat/stat_r/l04_demo_barplot.png&quot; src=&quot;/assets/image/stat/stat_r/l04_demo_barplot.png&quot; /&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>MySQL文本导入小结</title>
@@ -183,6 +250,94 @@ IGNORE 1 LINES           #跳过第一行
  </entry>
  
  <entry>
+   <title>第三课 pictograph</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/14/l03-pictograph"/>
+   <updated>2013-04-14T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/14/l03-pictograph</id>
+   <content type="html">&lt;p&gt;[&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/movie/2011/6/A/C/M82IC6GQU_M83J9K2AC.html&quot;&gt;第三课&lt;/a&gt;] pictograph 象形统计图表&lt;/p&gt;
+&lt;p&gt;俗话说一图胜千言，把复杂的数字用直观的数据可视化方法展示出来是一个优秀的数据分析师的基本要求。&lt;/p&gt;
+&lt;p&gt;那么何为美？从Beautiful Visualization的观点来看，一个称得上&amp;quot;美&amp;quot;的可视效果，它不但必须美观，而且也必须新颖、翔实和高效。这方面感兴趣的可以参考一下BV&lt;/p&gt;
+&lt;p&gt;做为传统的统计学来讲，数据可视化还是以传统的视图为主
+本节课主要介绍了一种象形的图表方法论。下面先简单介绍一下R的绘图，在后面几节课中会详细展开讲。
+R提供非常 多样的绘图 功能。如想了解，可以输入:&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+&amp;gt; demo(graphics)
+&amp;gt; demo(persp)
+&lt;/pre&gt;
+&lt;p&gt;R中基本的绘图主要有一下集中&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;id2&quot;&gt;
+&lt;h2&gt;1.散点图&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class=&quot;first&quot;&gt;在坐标系中直观的显示样本数据分布;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class=&quot;first&quot;&gt;主要以2、3维样本数据为主，更高的维度可以通过辅助的方法标示
+如，颜色、灰度、文字、形状等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class=&quot;first&quot;&gt;R中散点图用plot, line等函数来实现&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;dl class=&quot;first docutils&quot;&gt;
+&lt;dt&gt;R中的作图函数分高水平作图函数和低水平作图函数&lt;/dt&gt;
+&lt;dd&gt;&lt;ul class=&quot;first last simple&quot;&gt;
+&lt;li&gt;高水平作图函数:可以独立绘图,例如plot()&lt;/li&gt;
+&lt;li&gt;低水平作图函数:必须先运行高水平作图函数绘图,
+然后再加画在已有的图上面，如line()函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id3&quot;&gt;
+&lt;h2&gt;2.柱状图&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;由一系列高度不等的纵向条纹或线段表示数据分布的情况。&lt;/li&gt;
+&lt;li&gt;一般用横轴表示数据类型，纵轴表示分布情况, 也有横向图&lt;/li&gt;
+&lt;li&gt;用barplot()函数来画&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id4&quot;&gt;
+&lt;h2&gt;3.饼图&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id5&quot;&gt;
+&lt;h2&gt;4.茎叶图&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id6&quot;&gt;
+&lt;h2&gt;5.盒虚图&lt;/h2&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>第二课 range midrange</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/13/l02-range-midrange"/>
+   <updated>2013-04-13T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/13/l02-range-midrange</id>
+   <content type="html">&lt;p&gt;[&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/movie/2011/6/6/0/M82IC6GQU_M83J9IK60.html&quot;&gt;第二课&lt;/a&gt;] 极差(range), 中程数(midrange)&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;range&quot;&gt;
+&lt;h2&gt;1.range 极差&lt;/h2&gt;
+&lt;p&gt;级差（range）：最大数减去最小数。数字越小级差越小。它描述这些数字分开的有多远, 差值越小，数据分布得越紧密&lt;/p&gt;
+&lt;p&gt;R中range用于生成向量，像这种最大减最少用下面的方法就可以实现&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+max(x)-min(x)
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;midrange&quot;&gt;
+&lt;h2&gt;2.midrange 中程数&lt;/h2&gt;
+&lt;p&gt;中程数(midrange): 中程数是指数据集中最大数和最小数的平均值，是考虑集中趋势的又一种方式，是考虑中间值的有一种方法&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+(max(x) + min(x))/2
+&lt;/pre&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>快速搭建 Jekyll Blog (一)</title>
    <link href="http://sinoyster.github.io/blog/github/2013/04/13/hosted-jekyll-blog-1"/>
    <updated>2013-04-13T00:00:00+08:00</updated>
@@ -264,6 +419,144 @@ and to do system management tasks (as in Perl).  It is simple, straight-forward,
 &lt;p&gt;If you want a language for easy object-oriented programming, or you don't like the Perl ugliness, or you do like the concept of LISP,
 but don't like too many parentheses, Ruby might be your language of choice.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>第一课 mean median mode</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/11/l01-mean-median-mode"/>
+   <updated>2013-04-11T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/11/l01-mean-median-mode</id>
+   <content type="html">&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/movie/2011/6/6/0/M82IC6GQU_M83J9IK60.html&quot;&gt;第一课&lt;/a&gt;  mean median 和 mode&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;mean&quot;&gt;
+&lt;h2&gt;1.mean 算术平均数&lt;/h2&gt;
+&lt;p&gt;算术平均，就是累计求和除以个数&lt;/p&gt;
+&lt;p&gt;R中用mean计算&lt;/p&gt;
+&lt;p&gt;用法:&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+mean(x, ...)
+## Default S3 method:
+mean(x, trim = 0, na.rm = FALSE, ...)
+
+trim： 一个0到0.5的因子，用于清除样本中偏离比例, 修剪值超出该范围的定为最接近的端点。
+     通常用于去掉一些误差数据。注意，数据会在两端同时去掉
+     the fraction (0 to 0.5) of observations to be trimmed from
+     **each end** of ‘x’ before the mean is computed.  Values of trim
+     outside that range are taken as the nearest endpoint.
+
+
+na.rm: 一个逻辑值，表明NA值是否会清除不参与计算
+     a logical value indicating whether ‘NA’ values should be
+     stripped before the computation proceeds.
+&lt;/pre&gt;
+&lt;p&gt;trim例子:&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+&amp;gt; x=sort(rnorm(100,10,2))
+&amp;gt; mean(x)
+[1] 10.18032
+&amp;gt;
+&amp;gt; c(mean(x[11:90]),mean(x,trim=.1))
+&amp;gt; [1] 10.20156 10.20156
+&amp;gt;
+&amp;gt; c(mean(x[21:80]),mean(x,trim=.2))
+&amp;gt; [1] 10.24533 10.24533
+&amp;gt;
+&amp;gt;
+&amp;gt; x &amp;lt;- c(1:3,6)
+&amp;gt; mean(x)
+[1] 3
+
+&amp;gt; mean(x,0.25)
+[1] 2.5
+#实际上去掉了头和尾1和6两个数
+&amp;gt; mean(c(1:100,Na))
+[1] Na
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;median&quot;&gt;
+&lt;h2&gt;2.median 中位数&lt;/h2&gt;
+&lt;p&gt;如果数量为偶数，取中间两个数的平均值; 数量为奇数就是中间数字的值&lt;/p&gt;
+&lt;p&gt;例子:&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+&amp;gt; median(c(1:4),10)
+[1] 2.5
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;mode&quot;&gt;
+&lt;h2&gt;3.mode 众数&lt;/h2&gt;
+&lt;p&gt;众数：出现频率最多的数字&lt;/p&gt;
+&lt;p&gt;R中没有直接实现众数的函数，另外R中的mode也有另外的含义，不过可以用变通的方法实现&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+which.max(table(x))
+&lt;/pre&gt;
+&lt;p&gt;例子:&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+&amp;gt; x1 &amp;lt;- c(1:10,3)
+&amp;gt; x1
+ [1]  1  2  3  4  5  6  7  8  9 10  3
+&amp;gt; which.max(table(x1))
+3
+3
+&lt;/pre&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>第零课 统计学入门和R实践</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/10/l00-stat-and-r"/>
+   <updated>2013-04-10T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/10/l00-stat-and-r</id>
+   <content type="html">&lt;blockquote&gt;
+统计学是数据分析的基础，国内的大部分概率统计教程过于偏重理论、推导，很少涉及实际的案例应用。所以选定可汗学院的&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/special/Khan/khstatistics.html&quot;&gt;统计学&lt;/a&gt;作为入门并配合统计软件&lt;a class=&quot;reference external&quot; href=&quot;http://www.r-project.org/&quot;&gt;R&lt;/a&gt;进行实践。&lt;/blockquote&gt;
+&lt;div class=&quot;section&quot; id=&quot;id3&quot;&gt;
+&lt;h2&gt;R简介&lt;/h2&gt;
+&lt;blockquote&gt;
+R 是一套开源的统计绘图语言, 从S统计语言演变而来， 可以看做S的“方言”, 由于R的开放性，所有又很多领域的统计资源：目前在R网站上约有2400个程序包，涵盖了基础统计学、社会学、经济学、生态学、空间分析、系统发育分析、生物信息学等诸多方面。同时R也是跨平台的，可以在Winodws，Mac，Linux上运行。&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;id4&quot;&gt;
+&lt;h2&gt;R常用帮助&lt;/h2&gt;
+&lt;p&gt;help显示帮助文档&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+&amp;gt; help(mean)
+&lt;/pre&gt;
+&lt;p&gt;args显示函数的参数&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+&amp;gt; args(mean)
+function (x, ...)
+NULL
+&lt;/pre&gt;
+&lt;p&gt;用.default显示函数的默认实现&lt;/p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+&amp;gt; mean.default
+function (x, trim = 0, na.rm = FALSE, ...)
+{
+    if (!is.numeric(x) &amp;amp;&amp;amp; !is.complex(x) &amp;amp;&amp;amp; !is.logical(x)) {
+        warning(&amp;quot;argument is not numeric or logical: returning NA&amp;quot;)
+        return(NA_real_)
+    }
+    if (na.rm)
+        x &amp;lt;- x[!is.na(x)]
+    if (!is.numeric(trim) || length(trim) != 1L)
+        stop(&amp;quot;'trim' must be numeric of length one&amp;quot;)
+    n &amp;lt;- length(x)
+    if (trim &amp;gt; 0 &amp;amp;&amp;amp; n) {
+        if (is.complex(x))
+            stop(&amp;quot;trimmed means are not defined for complex data&amp;quot;)
+        if (any(is.na(x)))
+            return(NA_real_)
+        if (trim &amp;gt;= 0.5)
+            return(stats::median(x, na.rm = FALSE))
+        lo &amp;lt;- floor(n * trim) + 1
+        hi &amp;lt;- n + 1 - lo
+        x &amp;lt;- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+    }
+    .Internal(mean(x))
+}
+&lt;/pre&gt;
 &lt;/div&gt;
 
 </content>

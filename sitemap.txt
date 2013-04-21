@@ -8,6 +8,12 @@ http://sinoyster.github.io/categories.html
 http://sinoyster.github.io/tags.html
 http://sinoyster.github.io/sitemap.txt
 
+http://sinoyster.github.io/blog/stat/2013/04/19/l05-line-graph
+http://sinoyster.github.io/blog/stat/2013/04/15/l04-bar-gragh
 http://sinoyster.github.io/blog/database/2013/04/14/mysql-import-csv
+http://sinoyster.github.io/blog/stat/2013/04/14/l03-pictograph
+http://sinoyster.github.io/blog/stat/2013/04/13/l02-range-midrange
 http://sinoyster.github.io/blog/github/2013/04/13/hosted-jekyll-blog-1
 http://sinoyster.github.io/blog/github/2013/04/12/rest-test
+http://sinoyster.github.io/blog/stat/2013/04/11/l01-mean-median-mode
+http://sinoyster.github.io/blog/stat/2013/04/10/l00-stat-and-r

@@ -1,0 +1,62 @@
+---
+layout: post
+title: "第四课 bar graph 直方图"
+description: "bar graph 直方图"
+category: stat
+tags: ["R", "公开课", "统计学"]
+---
+{% include JB/setup %}
+
+
+[\ 第四课_\ ] bar graph 直方图
+
+.. _第四课: http://v.163.com/movie/2011/6/T/P/M82IC6GQU_M83J9NRTP.html
+
+
+直方图又称质量分布图，是一种几何形图表，它是根据从生产过程中收集来的质量数据分布情况，画成以组距为底边、以频数为高度的一系列连接起来的直方型矩形图，如下图所示。
+
+.. _fig_01:
+.. figure:: http://wiki.mbalib.com/w/images/c/c7/%E7%9B%B4%E6%96%B9%E5%9B%BE.gif
+
+
+作直方图的目的就是通过观察图的形状，判断生产过程是否稳定，预测生产过程的质量。具体来说，作直方图的目的有：
+
+  * 显示数据的波动状态，判断一批已加工完毕的产品；
+  * 直观地传达有关过程情况的信息，例如验证工序的稳定性；
+  * 为计算工序能力搜集有关数据。
+  * 决定在何处集中力量进行改进；
+  * 观察数据真伪，用以制定规格界限；
+
+直方图的优缺点:
+  * 直方图的优点:任何情况都能使用直方图。
+  * 直方图的不足:会有信息丢失。
+
+
+R中直方图的作图
+
+数据准备：
+l04.data::
+
+ exam Jansmine Jeff Nevin Alejandra Marta
+ midterm 73 87 83 82 96
+ final 78 85 88 95 91 
+
+代码:
+
+.. code::
+
+  > d <- read.table("l04.data", header=TRUE, sep=" ") #输入文件，用空格分隔
+  > barplot(as.matrix(d[,2:6]),      #指定第2列到第6列的数据
+            beside=T,          #并排显示，搞不懂的把参数去了对比一下就知道了
+            col=c("red", "blue"),    #指定颜色
+            legend=d$exam,           #指定legend
+            border="white",
+            xlim=c(0,18), ylim=c(0,100), #设定x、y轴的范围
+            args.legend = list(x="right"), #legend的位置
+            ylab="Score(%)")              #y轴的label
+  > title(main="Scores on Midterm and Final Exams") #设定title
+
+输出:
+
+.. figure:: /assets/image/stat/stat_r/l04_demo_barplot.png
+

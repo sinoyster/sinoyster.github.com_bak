@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>快速搭建 Jekyll Blog (一)</title>
-    <meta name="description" content="Jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，可以部署到github上面作为pages。">
+    <title>第二课 range midrange</title>
+    <meta name="description" content="range极差 midrange中程数 ">
     <meta name="author" content="王旭">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -108,59 +108,28 @@
         
 <div class="page-header">
   	<h1>
-  		【<a href="/categories.html#github-ref">github</a>】 快速搭建 Jekyll Blog (一) 
+  		【<a href="/categories.html#stat-ref">stat</a>】 第二课 range midrange 
   		<small>-- 13 April 2013 </small>
 	</h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>Jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，可以部署到github上面作为pages。并且github可以配合许多第三方服务,例如评论服务disqus、分享服务jiathis提供完整的blog服务。下面我们一步一步看Jekyll是如何简单的搭建博客的</p>
-<div class="section" id="repository">
-<h2>1.建立新库(Repository)</h2>
-<p>首先当然是得有github的账户，并建立一个新的库(Repository), 新库必须按照 <strong>USERNAME.github.com</strong> 命名。</p>
-</div>
-<div class="section" id="jekyll-bootstrap">
-<h2>2.安装 Jekyll-Bootstrap</h2>
-<pre class="literal-block">
-$ git clone https://github.com/plusjade/jekyll-bootstrap.git USERNAME.github.com
-$ cd USERNAME.github.com
-$ git remote set-url origin git&#64;github.com:USERNAME/USERNAME.github.com.git
-$ git push origin master
-</pre>
-<p>记得把USERNAME换成你的用户名，在push过程中也许会让你提供你ssh的公钥 rsa_id.pub</p>
-</div>
-<div class="section" id="jekyll">
-<h2>3.本地运行 Jekyll</h2>
-<p>先安装Jekyll:</p>
-<pre class="literal-block">
-$ gem install jekyll
-</pre>
-<p>如果有任何问题，可以参考 Jekyll 安装文档(If you run into a problem please consult the original Jekyll installation documentation)。
-安装完成就可以在本地运行jekyll了</p>
-<pre class="literal-block">
-$ cd USERNAME.github.com
-$ jekyll --server # 记得把 USERNAME 改为你github的用户名
+    <p>[<a class="reference external" href="http://v.163.com/movie/2011/6/6/0/M82IC6GQU_M83J9IK60.html">第二课</a>] 极差(range), 中程数(midrange)</p>
+<div class="section" id="range">
+<h2>1.range 极差</h2>
+<p>级差（range）：最大数减去最小数。数字越小级差越小。它描述这些数字分开的有多远, 差值越小，数据分布得越紧密</p>
+<p>R中range用于生成向量，像这种最大减最少用下面的方法就可以实现</p>
+<pre class="code literal-block">
+max(x)-min(x)
 </pre>
 </div>
-<div class="section" id="id1">
-<h2>4.发布第一篇博客</h2>
-<p>可以通过rake 任务轻松发布博客</p>
-<pre class="literal-block">
-$ rake post title=&quot;Hello World&quot;
+<div class="section" id="midrange">
+<h2>2.midrange 中程数</h2>
+<p>中程数(midrange): 中程数是指数据集中最大数和最小数的平均值，是考虑集中趋势的又一种方式，是考虑中间值的有一种方法</p>
+<pre class="code literal-block">
+(max(x) + min(x))/2
 </pre>
-<p>在_post目录下会生成一个md文件，对文件进行简单编辑
-现在在浏览器打入 localhost:4000 是不是就可以看到一个运行的博客了</p>
-</div>
-<div class="section" id="github">
-<h2>5.提交到github</h2>
-<p>通过简单的git命令就可以把变更提交到github</p>
-<pre class="literal-block">
-$ git add .
-$ git commit -m &quot;Add new content&quot;
-$ git push origin master
-</pre>
-<p>现在通过USERNAME.github.io 就可以测试刚才的博客了</p>
 </div>
 
 
@@ -168,11 +137,11 @@ $ git push origin master
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/blog/github/2013/04/12/rest-test" title="你好,ReST Test！">&larr; Previous</a></li>
+        <li class="prev"><a href="/blog/github/2013/04/13/hosted-jekyll-blog-1" title="快速搭建 Jekyll Blog (一)">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/blog/stat/2013/04/13/l02-range-midrange" title="第二课 range midrange">Next &rarr;</a></li>
+        <li class="next"><a href="/blog/stat/2013/04/14/l03-pictograph" title="第三课 pictograph">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -211,7 +180,11 @@ $ git push origin master
 
   
      
-    	<li><a href="/tags.html#blog-ref">blog <span>1</span></a></li>
+    	<li><a href="/tags.html#R-ref">R <span>6</span></a></li>
+     
+    	<li><a href="/tags.html#统计学-ref">统计学 <span>6</span></a></li>
+     
+    	<li><a href="/tags.html#公开课-ref">公开课 <span>6</span></a></li>
     
   
 
@@ -229,11 +202,11 @@ $ git push origin master
     
     	<li><a href="/blog/stat/2013/04/15/l04-bar-gragh">第四课 bar graph 直方图</a></li>
     
-    	<li><a href="/blog/database/2013/04/14/mysql-import-csv">MySQL文本导入小结</a></li>
-    
     	<li><a href="/blog/stat/2013/04/14/l03-pictograph">第三课 pictograph</a></li>
     
-    	<li><a href="/blog/stat/2013/04/13/l02-range-midrange">第二课 range midrange</a></li>
+    	<li><a href="/blog/stat/2013/04/11/l01-mean-median-mode">第一课 mean median mode</a></li>
+    
+    	<li><a href="/blog/stat/2013/04/10/l00-stat-and-r">第零课 统计学入门和R实践</a></li>
     
     </ul>
     <hr>

@@ -1,0 +1,75 @@
+---
+layout: post
+title: "第零课 统计学入门和R实践"
+description: ""
+category: stat
+tags: ["R", "公开课", "统计学"]
+---
+{% include JB/setup %}
+
+
+
+===============================
+  可汗学院公开课 统计学及R实践
+===============================
+
+
+    统计学是数据分析的基础，国内的大部分概率统计教程过于偏重理论、推导，很少涉及实际的案例应用。所以选定可汗学院的\ 统计学_\ 作为入门并配合统计软件\ R_\ 进行实践。
+
+.. _统计学: http://v.163.com/special/Khan/khstatistics.html
+.. _R: http://www.r-project.org/
+
+
+R简介
+======
+
+   R 是一套开源的统计绘图语言, 从S统计语言演变而来， 可以看做S的“方言”, 由于R的开放性，所有又很多领域的统计资源：目前在R网站上约有2400个程序包，涵盖了基础统计学、社会学、经济学、生态学、空间分析、系统发育分析、生物信息学等诸多方面。同时R也是跨平台的，可以在Winodws，Mac，Linux上运行。
+
+
+R常用帮助
+==========
+
+help显示帮助文档
+
+::
+
+  > help(mean)
+
+args显示函数的参数
+
+::
+
+  > args(mean)
+  function (x, ...) 
+  NULL
+
+用.default显示函数的默认实现
+
+::
+
+  > mean.default
+  function (x, trim = 0, na.rm = FALSE, ...) 
+  {
+      if (!is.numeric(x) && !is.complex(x) && !is.logical(x)) {
+          warning("argument is not numeric or logical: returning NA")
+          return(NA_real_)
+      }
+      if (na.rm) 
+          x <- x[!is.na(x)]
+      if (!is.numeric(trim) || length(trim) != 1L) 
+          stop("'trim' must be numeric of length one")
+      n <- length(x)
+      if (trim > 0 && n) {
+          if (is.complex(x)) 
+              stop("trimmed means are not defined for complex data")
+          if (any(is.na(x))) 
+              return(NA_real_)
+          if (trim >= 0.5) 
+              return(stats::median(x, na.rm = FALSE))
+          lo <- floor(n * trim) + 1
+          hi <- n + 1 - lo
+          x <- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+      }
+      .Internal(mean(x))
+  }
+  

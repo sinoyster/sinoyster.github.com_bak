@@ -1,0 +1,16 @@
+---
+layout: post
+title: "第五课 line graph 线形图"
+description: "line graph 线形图"
+category: stat
+tags: ["R", "公开课", "统计学"]
+---
+{% include JB/setup %}
+
+[\ 第五课_\ ] line graph 线形图
+
+.. _第五课: http://v.163.com/movie/2011/6/R/I/M82IC6GQU_M83J9N7RI.html
+
+
+
+
