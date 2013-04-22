@@ -11,6 +11,23 @@ tags: ["R", "公开课", "统计学"]
 
 .. _第五课: http://v.163.com/movie/2011/6/R/I/M82IC6GQU_M83J9N7RI.html
 
+线形图又称为“点状图”(point chart)、“停顿图”(Stopping chart)或“星状图”(star chart)。这是衔接收盘价而形成的图形，也是最早的绘图方法。线形图属于图表分析的一类，仅记录收盘价，至於开盘价、当日最高价、当日最高的变动及波动幅度则欠缺。以线形图捕捉长期趋势还可以，但却难于捕捉短线和中线趋势，目前已较少有人使用。
 
+线形图一般为坐标图，横坐标轴表示所定的股价频率即交易时间，如果预测短期趋势，则以日、周为时间单位；中期趋势则以月、季为时间单位长期趋势则以年为时间单位。纵坐标轴表示股价，个股图一般运用收盘价；大势图则采用股价平均数和股价指数。
 
+.. image:: http://wiki.mbalib.com/w/images/5/5c/%E7%BA%BF%E5%BD%A2%E5%9B%BE.gif
 
+R 中线形图用plot来画，下面看看视频的例子是如何画出来的:
+
+.. code::
+
+  p <- c(10, 11, 10, 12, 12.5, 12, 13.5, 13.9, 16.8, 15.2, 16, 16.5)
+  ml <-  c("July", "August", "September", "October", "November", "December", "January", "February", "March", "April", "May", "June")
+  plot(c(1:12), p, ylim=c(0,18), axes=F, type="l", col="blue", main="Price of Stock Share, July 2012-June 2011", ylab="Price($)")
+  axis(1, at=1:12, lab=ml)
+  axis(2, las=1, at=seq(2,18,2)) 
+  box()
+
+输出:
+
+.. figure:: /assets/image/stat/stat_r/l05_demo_line_graph.png
