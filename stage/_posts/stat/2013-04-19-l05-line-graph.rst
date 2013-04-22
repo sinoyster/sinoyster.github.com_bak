@@ -22,8 +22,10 @@ R 中线形图用plot来画，下面看看视频的例子是如何画出来的:
 .. code::
 
   p <- c(10, 11, 10, 12, 12.5, 12, 13.5, 13.9, 16.8, 15.2, 16, 16.5)
-  ml <-  c("July", "August", "September", "October", "November", "December", "January", "February", "March", "April", "May", "June")
-  plot(c(1:12), p, ylim=c(0,18), axes=F, type="l", col="blue", main="Price of Stock Share, July 2012-June 2011", ylab="Price($)")
+  ml <-  c("July", "August", "September", "October", "November", "December", 
+           "January", "February", "March", "April", "May", "June")
+  plot(c(1:12), p, ylim=c(0,18), axes=F, type="l", col="blue", 
+       main="Price of Stock Share, July 2012-June 2011", ylab="Price($)")
   axis(1, at=1:12, lab=ml)
   axis(2, las=1, at=seq(2,18,2)) 
   box()

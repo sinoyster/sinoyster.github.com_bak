@@ -4,13 +4,77 @@
  <title>王旭的博客</title>
  <link href="http://sinoyster.github.io/atom.xml" rel="self"/>
  <link href="http://sinoyster.github.io"/>
- <updated>2013-04-22T15:01:45+08:00</updated>
+ <updated>2013-04-22T22:26:57+08:00</updated>
  <id>http://sinoyster.github.io</id>
  <author>
    <name>王旭</name>
    <email>sinoyster@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>第七课 misleading line graph 误导人的线形图</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/22/l07-misleading-line-graph"/>
+   <updated>2013-04-22T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/22/l07-misleading-line-graph</id>
+   <content type="html">&lt;p&gt;[&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/movie/2011/6/S/E/M82IC6GQU_M83J9PESE.html&quot;&gt;第七课&lt;/a&gt;]  misleading line graph 误导人的线形图&amp;quot;&lt;/p&gt;
+&lt;p&gt;线形图优势在于同一副图中表达趋势发展，如果不同的线形图进行比对建议要有相同的起始刻度和比例，否则图像会失真, 实际上可以在一幅图中画多个线图进行比较&lt;/p&gt;
+&lt;p&gt;看教程中例子两幅图，Y坐标起始值不同，并且比例也差距很大&lt;/p&gt;
+&lt;p&gt;我们先用R分别画出两幅图，再把两幅图放一幅图中来比较&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+#数据准备
+yummy &amp;lt;- c(80, 76, 77, 72, 72, 68)
+thrill &amp;lt;- c(12, 19, 19, 20, 21, 25)
+duration &amp;lt;- c(2006:2011)
+
+#第一幅图
+plot(duration, yummy, type=&amp;quot;l&amp;quot;, col=&amp;quot;red&amp;quot;, ylim=c(50,100), ylab=&amp;quot;%&amp;quot;, main=&amp;quot;Precentage of People Who Prefer Yummy Cola&amp;quot;)
+#第二幅图
+plot(duration, thrill, type=&amp;quot;l&amp;quot;, col=&amp;quot;blue&amp;quot;, ylim=c(0,30), ylab=&amp;quot;%&amp;quot;, main=&amp;quot;Precentage of People Who Prefer Thrill Cola&amp;quot;)
+
+#第三幅图
+&amp;gt; plot(duration, yummy, type=&amp;quot;l&amp;quot;, col=&amp;quot;red&amp;quot;, ylim=c(0,100), ylab=&amp;quot;%&amp;quot;, main=&amp;quot;Precentage of People Who Prefer  Cola&amp;quot;)
+&amp;gt; lines(duration, thrill, col=&amp;quot;blue&amp;quot;)
+&lt;/pre&gt;
+&lt;p&gt;第一幅图：&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img alt=&quot;/assets/image/stat/stat_r/l07_demo_misleading_f1.png&quot; src=&quot;/assets/image/stat/stat_r/l07_demo_misleading_f1.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;第二幅图：&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img alt=&quot;/assets/image/stat/stat_r/l07_demo_misleading_f2.png&quot; src=&quot;/assets/image/stat/stat_r/l07_demo_misleading_f2.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;第三幅图：&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img alt=&quot;/assets/image/stat/stat_r/l07_demo_misleading_f3.png&quot; src=&quot;/assets/image/stat/stat_r/l07_demo_misleading_f3.png&quot; /&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>第六课 bar graph 饼图</title>
+   <link href="http://sinoyster.github.io/blog/stat/2013/04/22/l06-bar-graph"/>
+   <updated>2013-04-22T00:00:00+08:00</updated>
+   <id>http://sinoyster.github.io/blog/stat/2013/04/22/l06-bar-graph</id>
+   <content type="html">&lt;p&gt;[&lt;a class=&quot;reference external&quot; href=&quot;http://v.163.com/movie/2011/6/I/0/M82IC6GQU_M83J9ONI0.html&quot;&gt;第六课&lt;/a&gt;] bar graph 饼图&lt;/p&gt;
+&lt;p&gt;圆饼图也称馅饼图，用扇形的面积，也就是圆心角的度数来表示数量。圆饼图主要用来表示组数不多的品质资料或间断性数量资料的内部构成，且各部份百分比之和必须是100%。圆饼图可以使企业根据圆中各个扇形面积的大小，判断某一部分在总体中所占比例的多少。&lt;/p&gt;
+&lt;p&gt;下面就是一个饼图的例子：&lt;/p&gt;
+&lt;img alt=&quot;http://wiki.mbalib.com/w/images/a/a5/%E5%9C%86%E9%A5%BC%E5%9B%BE.jpg&quot; src=&quot;http://wiki.mbalib.com/w/images/a/a5/%E5%9C%86%E9%A5%BC%E5%9B%BE.jpg&quot; /&gt;
+&lt;p&gt;R中画饼图很简单，用pie就可以完成，具体的语法参考help(pie)&lt;/p&gt;
+&lt;pre class=&quot;code literal-block&quot;&gt;
+ticket_sales&amp;lt;- c(18, 10 , 7, 5, 5, 3 ,3 ,9 , 7, 8, 13, 12)
+ml &amp;lt;- c(&amp;quot;January&amp;quot;, &amp;quot;February&amp;quot;, &amp;quot;March&amp;quot;, &amp;quot;April&amp;quot;, &amp;quot;May&amp;quot;, &amp;quot;June&amp;quot;,
+         &amp;quot;July&amp;quot;, &amp;quot;August&amp;quot;, &amp;quot;September&amp;quot;, &amp;quot;October&amp;quot;, &amp;quot;November&amp;quot;, &amp;quot;December&amp;quot;)
+pie(ticket_sales, col=rainbow(length(ticket_sales)), labels= ml)
+&lt;/pre&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img alt=&quot;/assets/image/stat/stat_r/l06_demo_pie.png&quot; src=&quot;/assets/image/stat/stat_r/l06_demo_pie.png&quot; /&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>第五课 line graph 线形图</title>
@@ -24,8 +88,10 @@
 &lt;p&gt;R 中线形图用plot来画，下面看看视频的例子是如何画出来的:&lt;/p&gt;
 &lt;pre class=&quot;code literal-block&quot;&gt;
 p &amp;lt;- c(10, 11, 10, 12, 12.5, 12, 13.5, 13.9, 16.8, 15.2, 16, 16.5)
-ml &amp;lt;-  c(&amp;quot;July&amp;quot;, &amp;quot;August&amp;quot;, &amp;quot;September&amp;quot;, &amp;quot;October&amp;quot;, &amp;quot;November&amp;quot;, &amp;quot;December&amp;quot;, &amp;quot;January&amp;quot;, &amp;quot;February&amp;quot;, &amp;quot;March&amp;quot;, &amp;quot;April&amp;quot;, &amp;quot;May&amp;quot;, &amp;quot;June&amp;quot;)
-plot(c(1:12), p, ylim=c(0,18), axes=F, type=&amp;quot;l&amp;quot;, col=&amp;quot;blue&amp;quot;, main=&amp;quot;Price of Stock Share, July 2012-June 2011&amp;quot;, ylab=&amp;quot;Price($)&amp;quot;)
+ml &amp;lt;-  c(&amp;quot;July&amp;quot;, &amp;quot;August&amp;quot;, &amp;quot;September&amp;quot;, &amp;quot;October&amp;quot;, &amp;quot;November&amp;quot;, &amp;quot;December&amp;quot;,
+         &amp;quot;January&amp;quot;, &amp;quot;February&amp;quot;, &amp;quot;March&amp;quot;, &amp;quot;April&amp;quot;, &amp;quot;May&amp;quot;, &amp;quot;June&amp;quot;)
+plot(c(1:12), p, ylim=c(0,18), axes=F, type=&amp;quot;l&amp;quot;, col=&amp;quot;blue&amp;quot;,
+     main=&amp;quot;Price of Stock Share, July 2012-June 2011&amp;quot;, ylab=&amp;quot;Price($)&amp;quot;)
 axis(1, at=1:12, lab=ml)
 axis(2, las=1, at=seq(2,18,2))
 box()

@@ -1,0 +1,36 @@
+---
+layout: post
+title: "第六课 bar graph 饼图"
+description: "bar graph 饼图"
+category: stat
+tags: ["R", "公开课", "统计学"]
+---
+{% include JB/setup %}
+
+
+[\ 第六课_\ ] bar graph 饼图
+
+.. _第六课: http://v.163.com/movie/2011/6/I/0/M82IC6GQU_M83J9ONI0.html
+
+
+
+
+圆饼图也称馅饼图，用扇形的面积，也就是圆心角的度数来表示数量。圆饼图主要用来表示组数不多的品质资料或间断性数量资料的内部构成，且各部份百分比之和必须是100%。圆饼图可以使企业根据圆中各个扇形面积的大小，判断某一部分在总体中所占比例的多少。
+
+下面就是一个饼图的例子：
+
+.. image:: http://wiki.mbalib.com/w/images/a/a5/%E5%9C%86%E9%A5%BC%E5%9B%BE.jpg
+
+
+R中画饼图很简单，用pie就可以完成，具体的语法参考help(pie)
+
+.. code::
+
+  ticket_sales<- c(18, 10 , 7, 5, 5, 3 ,3 ,9 , 7, 8, 13, 12)
+  ml <- c("January", "February", "March", "April", "May", "June", 
+           "July", "August", "September", "October", "November", "December")
+  pie(ticket_sales, col=rainbow(length(ticket_sales)), labels= ml)
+
+输出：
+
+.. figure:: /assets/image/stat/stat_r/l06_demo_pie.png

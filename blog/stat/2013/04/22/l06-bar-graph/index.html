@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>快速搭建 Jekyll Blog (一)</title>
-    <meta name="description" content="Jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，可以部署到github上面作为pages。">
+    <title>第六课 bar graph 饼图</title>
+    <meta name="description" content="bar graph 饼图">
     <meta name="author" content="王旭">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -108,59 +108,27 @@
         
 <div class="page-header">
   	<h1>
-  		【<a href="/categories.html#github-ref">github</a>】 快速搭建 Jekyll Blog (一) 
-  		<small>-- 13 April 2013 </small>
+  		【<a href="/categories.html#stat-ref">stat</a>】 第六课 bar graph 饼图 
+  		<small>-- 22 April 2013 </small>
 	</h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>Jekyll是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，可以部署到github上面作为pages。并且github可以配合许多第三方服务,例如评论服务disqus、分享服务jiathis提供完整的blog服务。下面我们一步一步看Jekyll是如何简单的搭建博客的</p>
-<div class="section" id="repository">
-<h2>1.建立新库(Repository)</h2>
-<p>首先当然是得有github的账户，并建立一个新的库(Repository), 新库必须按照 <strong>USERNAME.github.com</strong> 命名。</p>
-</div>
-<div class="section" id="jekyll-bootstrap">
-<h2>2.安装 Jekyll-Bootstrap</h2>
-<pre class="literal-block">
-$ git clone https://github.com/plusjade/jekyll-bootstrap.git USERNAME.github.com
-$ cd USERNAME.github.com
-$ git remote set-url origin git&#64;github.com:USERNAME/USERNAME.github.com.git
-$ git push origin master
+    <p>[<a class="reference external" href="http://v.163.com/movie/2011/6/I/0/M82IC6GQU_M83J9ONI0.html">第六课</a>] bar graph 饼图</p>
+<p>圆饼图也称馅饼图，用扇形的面积，也就是圆心角的度数来表示数量。圆饼图主要用来表示组数不多的品质资料或间断性数量资料的内部构成，且各部份百分比之和必须是100%。圆饼图可以使企业根据圆中各个扇形面积的大小，判断某一部分在总体中所占比例的多少。</p>
+<p>下面就是一个饼图的例子：</p>
+<img alt="http://wiki.mbalib.com/w/images/a/a5/%E5%9C%86%E9%A5%BC%E5%9B%BE.jpg" src="http://wiki.mbalib.com/w/images/a/a5/%E5%9C%86%E9%A5%BC%E5%9B%BE.jpg" />
+<p>R中画饼图很简单，用pie就可以完成，具体的语法参考help(pie)</p>
+<pre class="code literal-block">
+ticket_sales&lt;- c(18, 10 , 7, 5, 5, 3 ,3 ,9 , 7, 8, 13, 12)
+ml &lt;- c(&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;,
+         &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;)
+pie(ticket_sales, col=rainbow(length(ticket_sales)), labels= ml)
 </pre>
-<p>记得把USERNAME换成你的用户名，在push过程中也许会让你提供你ssh的公钥 rsa_id.pub</p>
-</div>
-<div class="section" id="jekyll">
-<h2>3.本地运行 Jekyll</h2>
-<p>先安装Jekyll:</p>
-<pre class="literal-block">
-$ gem install jekyll
-</pre>
-<p>如果有任何问题，可以参考 Jekyll 安装文档(If you run into a problem please consult the original Jekyll installation documentation)。
-安装完成就可以在本地运行jekyll了</p>
-<pre class="literal-block">
-$ cd USERNAME.github.com
-$ jekyll --server # 记得把 USERNAME 改为你github的用户名
-</pre>
-</div>
-<div class="section" id="id1">
-<h2>4.发布第一篇博客</h2>
-<p>可以通过rake 任务轻松发布博客</p>
-<pre class="literal-block">
-$ rake post title=&quot;Hello World&quot;
-</pre>
-<p>在_post目录下会生成一个md文件，对文件进行简单编辑
-现在在浏览器打入 localhost:4000 是不是就可以看到一个运行的博客了</p>
-</div>
-<div class="section" id="github">
-<h2>5.提交到github</h2>
-<p>通过简单的git命令就可以把变更提交到github</p>
-<pre class="literal-block">
-$ git add .
-$ git commit -m &quot;Add new content&quot;
-$ git push origin master
-</pre>
-<p>现在通过USERNAME.github.io 就可以测试刚才的博客了</p>
+<p>输出：</p>
+<div class="figure">
+<img alt="/assets/image/stat/stat_r/l06_demo_pie.png" src="/assets/image/stat/stat_r/l06_demo_pie.png" />
 </div>
 
 
@@ -168,11 +136,11 @@ $ git push origin master
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/blog/github/2013/04/12/rest-test" title="你好,ReST Test！">&larr; Previous</a></li>
+        <li class="prev"><a href="/blog/stat/2013/04/19/l05-line-graph" title="第五课 line graph 线形图">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/blog/stat/2013/04/13/l02-range-midrange" title="第二课 range midrange">Next &rarr;</a></li>
+        <li class="next"><a href="/blog/stat/2013/04/22/l07-misleading-line-graph" title="第七课 misleading line graph 误导人的线形图">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -211,7 +179,11 @@ $ git push origin master
 
   
      
-    	<li><a href="/tags.html#blog-ref">blog <span>1</span></a></li>
+    	<li><a href="/tags.html#R-ref">R <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#公开课-ref">公开课 <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#统计学-ref">统计学 <span>8</span></a></li>
     
   
 
@@ -227,13 +199,13 @@ $ git push origin master
     
     	<li><a href="/blog/stat/2013/04/22/l07-misleading-line-graph">第七课 misleading line graph 误导人的线形图</a></li>
     
-    	<li><a href="/blog/stat/2013/04/22/l06-bar-graph">第六课 bar graph 饼图</a></li>
-    
     	<li><a href="/blog/stat/2013/04/19/l05-line-graph">第五课 line graph 线形图</a></li>
     
     	<li><a href="/blog/stat/2013/04/15/l04-bar-gragh">第四课 bar graph 直方图</a></li>
     
-    	<li><a href="/blog/database/2013/04/14/mysql-import-csv">MySQL文本导入小结</a></li>
+    	<li><a href="/blog/stat/2013/04/14/l03-pictograph">第三课 pictograph</a></li>
+    
+    	<li><a href="/blog/stat/2013/04/13/l02-range-midrange">第二课 range midrange</a></li>
     
     </ul>
     <hr>

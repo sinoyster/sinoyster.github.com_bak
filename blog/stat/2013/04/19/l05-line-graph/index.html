@@ -122,8 +122,10 @@
 <p>R 中线形图用plot来画，下面看看视频的例子是如何画出来的:</p>
 <pre class="code literal-block">
 p &lt;- c(10, 11, 10, 12, 12.5, 12, 13.5, 13.9, 16.8, 15.2, 16, 16.5)
-ml &lt;-  c(&quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;, &quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;)
-plot(c(1:12), p, ylim=c(0,18), axes=F, type=&quot;l&quot;, col=&quot;blue&quot;, main=&quot;Price of Stock Share, July 2012-June 2011&quot;, ylab=&quot;Price($)&quot;)
+ml &lt;-  c(&quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;,
+         &quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;)
+plot(c(1:12), p, ylim=c(0,18), axes=F, type=&quot;l&quot;, col=&quot;blue&quot;,
+     main=&quot;Price of Stock Share, July 2012-June 2011&quot;, ylab=&quot;Price($)&quot;)
 axis(1, at=1:12, lab=ml)
 axis(2, las=1, at=seq(2,18,2))
 box()
@@ -142,7 +144,7 @@ box()
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/blog/stat/2013/04/22/l06-bar-graph" title="第六课 bar graph 饼图">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -181,11 +183,11 @@ box()
 
   
      
-    	<li><a href="/tags.html#R-ref">R <span>6</span></a></li>
+    	<li><a href="/tags.html#R-ref">R <span>8</span></a></li>
      
-    	<li><a href="/tags.html#公开课-ref">公开课 <span>6</span></a></li>
+    	<li><a href="/tags.html#公开课-ref">公开课 <span>8</span></a></li>
      
-    	<li><a href="/tags.html#统计学-ref">统计学 <span>6</span></a></li>
+    	<li><a href="/tags.html#统计学-ref">统计学 <span>8</span></a></li>
     
   
 
@@ -199,15 +201,15 @@ box()
   	<div class="sidebar-title">相关文章</div>
     <ul>
     
+    	<li><a href="/blog/stat/2013/04/22/l07-misleading-line-graph">第七课 misleading line graph 误导人的线形图</a></li>
+    
+    	<li><a href="/blog/stat/2013/04/22/l06-bar-graph">第六课 bar graph 饼图</a></li>
+    
     	<li><a href="/blog/stat/2013/04/15/l04-bar-gragh">第四课 bar graph 直方图</a></li>
     
     	<li><a href="/blog/stat/2013/04/14/l03-pictograph">第三课 pictograph</a></li>
     
     	<li><a href="/blog/stat/2013/04/13/l02-range-midrange">第二课 range midrange</a></li>
-    
-    	<li><a href="/blog/stat/2013/04/11/l01-mean-median-mode">第一课 mean median mode</a></li>
-    
-    	<li><a href="/blog/stat/2013/04/10/l00-stat-and-r">第零课 统计学入门和R实践</a></li>
     
     </ul>
     <hr>
