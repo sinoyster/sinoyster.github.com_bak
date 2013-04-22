@@ -8,6 +8,7 @@ http://sinoyster.github.io/categories.html
 http://sinoyster.github.io/tags.html
 http://sinoyster.github.io/sitemap.txt
 
+http://sinoyster.github.io/blog/stat/2013/04/22/l08-stem
 http://sinoyster.github.io/blog/stat/2013/04/22/l07-misleading-line-graph
 http://sinoyster.github.io/blog/stat/2013/04/22/l06-bar-graph
 http://sinoyster.github.io/blog/stat/2013/04/19/l05-line-graph
